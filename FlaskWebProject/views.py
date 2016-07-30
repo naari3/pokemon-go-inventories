@@ -6,8 +6,8 @@ from datetime import datetime
 from flask import render_template, jsonify, request
 import json
 from FlaskWebProject import app
-from pogo_optimizer_cli import PgoInventor
-pi = PgoInventor()
+from PgoInventories import PgoInventories
+pi = PgoInventories()
 app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')

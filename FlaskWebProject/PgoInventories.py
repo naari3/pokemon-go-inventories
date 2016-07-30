@@ -52,7 +52,7 @@ from collections import defaultdict
 
 log = logging.getLogger(__name__)
 
-class PgoInventor(object):
+class PgoInventories(object):
     def __init__(self):
         pass
 
