@@ -25,6 +25,6 @@ def recv():
     auth_service = request.form.get("auth_service", type=str)
     login_dict = {"username": username, "password": password, "auth_service": auth_service}
     print(login_dict)
-    poke_dict = pi.main(username, password, auth_service, "Nakameguro sta")
+    poke_dict = pi.main(username, password, auth_service, "Tokyo sta")
 
     return jsonify(ResultSet=poke_dict, ensure_ascii=False)
