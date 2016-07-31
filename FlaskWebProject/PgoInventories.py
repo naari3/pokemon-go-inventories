@@ -123,12 +123,7 @@ class PgoInventories(object):
         if not api.login(config.auth_service, config.username, config.password):
             return
 
-        # get inventory call
-        # ----------------------
-        api.get_inventory()
-
-        # execute the RPC call
-        response_dict = api.call()
+        response_dict = api.get_inventory()
 
         approot = os.path.dirname(os.path.realpath(__file__))
 
@@ -146,8 +141,12 @@ class PgoInventories(object):
             i['individual_stamina'] =  i.get('individual_stamina', 0)
             i['power_quotient'] = round(((float(i['individual_defense']) + float(i['individual_attack']) + float(i['individual_stamina'])) / 45) * 100)
             i['name'] = list(filter(lambda j: int(j['Number']) == i['pokemon_id'], pokemon))[0]['Name']
-            i['move_1'] = list(filter(lambda j: j['id'] == i['move_1'], moves))[0]['name']
-            i['move_2'] = list(filter(lambda j: j['id'] == i['move_2'], moves))[0]['name']
+            move_1 = list(filter(lambda j: j['id'] == i['move_1'], moves))[0]
+            move_2 = list(filter(lambda j: j['id'] == i['move_2'], moves))[0]
+            i['move_1'] = move_1['name']
+            i['move_2'] = move_2['name']
+            i['move_1_type'] = move_1['type']
+            i['move_2_type'] = move_2['type']
             return i
 
         all_pokemon = filter(lambda i: 'pokemon_data' in i['inventory_item_data'] and 'is_egg' not in i['inventory_item_data']['pokemon_data'], response_dict['responses']['GET_INVENTORY']['inventory_delta']['inventory_items'])

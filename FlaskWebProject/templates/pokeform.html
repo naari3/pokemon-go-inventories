@@ -8,6 +8,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/static/scripts/stupidtable.min.js"></script>
     <script src="/static/scripts/poke-inventor.js"></script>
     <style>
       body {
@@ -29,6 +30,97 @@
       .table {
         width: 95%;
         margin: 0 auto;
+        font-size: 97.5%;
+      }
+      .type.Normal {
+        background: #a8a090;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Fire {
+        background: #f05030;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Water {
+        background: #3898f8;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Electric {
+        background: #f8e930;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Grass {
+        background: limegreen;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Ice {
+        background: #58c8e0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Fighting {
+        background: #a05038;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Poison {
+        background: #b058a0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Ground {
+        background: #d0b058;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Flying {
+        background: #98a8f0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Psychic {
+        background: #f870a0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Bug {
+        background: #a8b820;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Rock {
+        background: #b8a058;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Ghost {
+        background: #6060b0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Dragon {
+        background: #7860e0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Dark {
+        background: #705848;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Steel {
+        background: #a8a8c0;
+        color: #fff;
+        padding: 0;
+      }
+      .type.Fairy {
+        background: #f8b0d0;
+        color: #fff;
+        padding: 0;
       }
     </style>
   </head>
@@ -74,18 +166,18 @@
 
 
     <div class="table">
-      <table class="responsive-table bordered">
+      <table class="bordered" id="myTable">
         <thead>
           <tr>
-            <th data-field="cp">CP</th>
             <th data-field="name">Name</th>
-            <th data-field="individual_attack">IV Atk</th>
-            <th data-field="individual_defense">IV Def</th>
-            <th data-field="individual_stamina">IV Stm</th>
-            <!-- <th data-field="power_quotient">Power Quotient</th> -->
-            <th data-field="move_1">Move 1</th>
-            <th data-field="move_2">Move 2</th>
-            <th data-field="stamina">Stamina</th>
+            <th data-field="move_1" data-sort="int">Move 1</th>
+            <th data-field="move_2" data-sort="int">Move 2</th>
+            <th data-field="cp" data-sort="int">CP</th>
+            <th data-field="individual_attack" data-sort="int">IVA</th>
+            <th data-field="individual_defense" data-sort="int">IVD</th>
+            <th data-field="individual_stamina" data-sort="int">IVS</th>
+            <th data-field="power_quotient" data-sort="int">IV%</th>
+            <th data-field="stamina" data-sort="int">HP</th>
             <th data-field="nickname">nickname</th>
           </tr>
         </thead>

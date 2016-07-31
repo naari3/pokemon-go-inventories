@@ -7,19 +7,44 @@ $(function () {
   $table.hide();
   $progress.hide();
 
+  $table.stupidtable();
+
+  type2int = {
+    "Normal":1,
+    "Fire":2,
+    "Water":3,
+    "Electric":4,
+    "Grass":5,
+    "Ice":6,
+    "Fighting":7,
+    "Poison":8,
+    "Ground":9,
+    "Flying":10,
+    "Psychic":11,
+    "Bug":12,
+    "Rock":13,
+    "Ghost":14,
+    "Dragon":15,
+    "Dark":16,
+    "Steel":17,
+    "Fairy":18,
+  }
+
   function addPokemons(pokemons) {
     for (var poke of pokemons) {
       if (!(poke.stamina)) { poke.stamina = "" }
       if (!(poke.nickname)) { poke.nickname = "" }
+      var move_1_type_value = type2int[poke.move_1_type];
+      var move_2_type_value = type2int[poke.move_2_type];
       var $newtr = $("<tr></tr>");
+      $newtr.append(`<td><img class="left icon" src="/static/icons/${poke.pokemon_id}.png"></i>${poke.name}</td>`);
+      $newtr.append(`<td class="type ${poke.move_1_type}" data-sort-value="${move_1_type_value}">${poke.move_1}</td>`);
+      $newtr.append(`<td class="type ${poke.move_2_type}" data-sort-value="${move_2_type_value}">${poke.move_2}</td>`);
       $newtr.append(`<td>${poke.cp}</td>`);
-      $newtr.append(`<td>${poke.name}</td>`);
       $newtr.append(`<td>${poke.individual_attack}</td>`);
       $newtr.append(`<td>${poke.individual_defense}</td>`);
       $newtr.append(`<td>${poke.individual_stamina}</td>`);
-      // $newtr.append(`<td>${poke.power_quotient}</td>`);
-      $newtr.append(`<td>${poke.move_1}</td>`);
-      $newtr.append(`<td>${poke.move_2}</td>`);
+      $newtr.append(`<td>${poke.power_quotient}</td>`);
       $newtr.append(`<td>${poke.stamina}</td>`);
       $newtr.append(`<td>${poke.nickname}</td>`);
       $table.append($newtr);
