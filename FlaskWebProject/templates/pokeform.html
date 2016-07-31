@@ -32,6 +32,12 @@
         margin: 0 auto;
         font-size: 97.5%;
       }
+      th {
+        text-align: center;
+      }
+      td {
+        text-align: center;
+      }
       .type.Normal {
         background: #a8a090;
         color: #fff;
@@ -169,15 +175,16 @@
       <table class="bordered" id="myTable">
         <thead>
           <tr>
-            <th data-field="name">Name</th>
+            <th class="num" data-field="number" data-sort="int">#</th>
+            <th data-field="name" data-sort="string">Name</th>
             <th data-field="move_1" data-sort="int">Move 1</th>
             <th data-field="move_2" data-sort="int">Move 2</th>
-            <th data-field="cp" data-sort="int">CP</th>
-            <th data-field="individual_attack" data-sort="int">IVA</th>
-            <th data-field="individual_defense" data-sort="int">IVD</th>
-            <th data-field="individual_stamina" data-sort="int">IVS</th>
-            <th data-field="power_quotient" data-sort="int">IV%</th>
-            <th data-field="stamina" data-sort="int">HP</th>
+            <th class="num" data-field="cp" data-sort="int">CP</th>
+            <th class="num" data-field="individual_attack" data-sort="int">IVA</th>
+            <th class="num" data-field="individual_defense" data-sort="int">IVD</th>
+            <th class="num" data-field="individual_stamina" data-sort="int">IVS</th>
+            <th class="num" data-field="power_quotient" data-sort="int">IV%</th>
+            <th class="num" data-field="stamina" data-sort="int">HP</th>
             <th data-field="nickname">nickname</th>
           </tr>
         </thead>

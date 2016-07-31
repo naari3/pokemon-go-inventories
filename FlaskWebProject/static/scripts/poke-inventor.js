@@ -37,6 +37,7 @@ $(function () {
       var move_1_type_value = type2int[poke.move_1_type];
       var move_2_type_value = type2int[poke.move_2_type];
       var $newtr = $("<tr></tr>");
+      $newtr.append(`<td>${poke.pokemon_id}</td>`);
       $newtr.append(`<td><img class="left icon" src="/static/icons/${poke.pokemon_id}.png"></i>${poke.name}</td>`);
       $newtr.append(`<td class="type ${poke.move_1_type}" data-sort-value="${move_1_type_value}">${poke.move_1}</td>`);
       $newtr.append(`<td class="type ${poke.move_2_type}" data-sort-value="${move_2_type_value}">${poke.move_2}</td>`);
