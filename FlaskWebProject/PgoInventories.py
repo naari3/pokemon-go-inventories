@@ -153,4 +153,4 @@ class PgoInventories(object):
         all_pokemon = list(map(format, all_pokemon))
         all_pokemon.sort(key=lambda x: x['power_quotient'], reverse=True)
 
-        return all_pokemon
+        return all_pokemon, api

@@ -1,8 +1,8 @@
 $(function () {
-  $table = $("table");
-  $progress = $("#progress");
-  $submit = $("#submit");
-  $form = $("#form");
+  var $table = $("table");
+  var $progress = $("#progress");
+  var $submit = $("#submit");
+  var $form = $("#form");
 
   $table.hide();
   $progress.hide();
@@ -39,15 +39,19 @@ $(function () {
       var $newtr = $("<tr></tr>");
       $newtr.append(`<td>${poke.pokemon_id}</td>`);
       $newtr.append(`<td><img class="left icon" src="/static/icons/${poke.pokemon_id}.png"></i>${poke.name}</td>`);
-      $newtr.append(`<td class="type ${poke.move_1_type}" data-sort-value="${move_1_type_value}">${poke.move_1}</td>`);
-      $newtr.append(`<td class="type ${poke.move_2_type}" data-sort-value="${move_2_type_value}">${poke.move_2}</td>`);
+      $move1td = $(`<td class="type ${poke.move_1_type}" data-sort-value="${move_1_type_value}">${poke.move_1}</td>`);
+      $move2td = $(`<td class="type ${poke.move_2_type}" data-sort-value="${move_2_type_value}">${poke.move_2}</td>`);
+      $newtr.append($move1td);
+      $newtr.append($move2td);
       $newtr.append(`<td>${poke.cp}</td>`);
       $newtr.append(`<td>${poke.individual_attack}</td>`);
       $newtr.append(`<td>${poke.individual_defense}</td>`);
       $newtr.append(`<td>${poke.individual_stamina}</td>`);
       $newtr.append(`<td>${poke.power_quotient}</td>`);
       $newtr.append(`<td>${poke.stamina}</td>`);
-      $newtr.append(`<td>${poke.nickname}</td>`);
+      $nicktd = $(`<td><span>${poke.nickname}</span></td>`);
+      $nicktd.append(`<i class="material-icons right nickname">edit</i>`);
+      $newtr.append($nicktd);
       $table.append($newtr);
     }
   }
@@ -69,7 +73,7 @@ $(function () {
       }).done(function (response) {
         console.log(response);
         if (response.ResultSet) {
-          pokemons = response.ResultSet;
+          var pokemons = response.ResultSet;
           addPokemons(pokemons);
           $progress.fadeOut(250, function () {
             $form.hide();
@@ -93,5 +97,40 @@ $(function () {
     } else {
       Materialize.toast($('<span><i class="material-icons right">warning</i>全て入力して下さい</span>'), 4000);
     }
+  });
+
+  $(document).on('click', '.nickname', function () {
+    // console.dir($(this));
+    var $parent = $(this).parent();
+    var $span = $($parent.find('span')[0]);
+    console.dir($span);
+    var nickname = $span.text();
+    console.log(nickname);
+    $span.hide();
+    $(this).hide();
+    console.dir($parent.find('.nickname_input')[0]);
+    if ($parent.find('.nickname_input')[0]) {
+      $($parent.find('.nickname_input')[0]).show();
+      $($parent.find('.nickname_save')[0]).show();
+    } else {
+      $parent.append(`<input class="nickname_input" type="text" value=${nickname}></input>`)
+      $parent.append(`<i class="material-icons prefix nickname_save">save</i>`);
+    }
+  });
+
+
+  $(document).on('click', '.nickname_save', function () {
+    var $parent = $(this).parent();
+    var $span = $($parent.find('span')[0]);
+    var $nickedit = $($parent.find('.nickname')[0]);
+    var $nick_input = $($parent.find('.nickname_input')[0]);
+    var nickname = $nick_input.val();
+    console.dir($span);
+    console.log(nickname);
+    $span.text(nickname);
+    $nick_input.hide();
+    $(this).hide();
+    $span.show();
+    $nickedit.show();
   });
 });
