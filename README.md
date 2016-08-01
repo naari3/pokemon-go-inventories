@@ -14,12 +14,16 @@ listing your all pokemon's all.
     - Defense
     - Stamina
   - nickname
+- Table Sorting (Beta)
+- Edit Pokemon's name
+- Favoritable Pokemon
 
 ## TODO
 
+- [x] Edit Pokemon's name
+- [x] Favoritable Pokemon
 - [ ] Advance Sorting
-- [ ] More easily viewable table
-- [ ] Edit Pokemon's name
+- ~~[ ] More easily viewable table~~
 
 ## Credits
 

@@ -1,0 +1,58 @@
+.type {
+  color: #fff;
+  padding: 0;
+}
+.type.Normal {
+  background: #a8a090;
+}
+.type.Fire {
+  background: #f05030;
+}
+.type.Water {
+  background: #3898f8;
+}
+.type.Electric {
+  background: #f8c930;
+}
+.type.Grass {
+  background: limegreen;
+}
+.type.Ice {
+  background: #58c8e0;
+}
+.type.Fighting {
+  background: #a05038;
+}
+.type.Poison {
+  background: #b058a0;
+}
+.type.Ground {
+  background: #d0b058;
+}
+.type.Flying {
+  background: #98a8f0;
+}
+.type.Psychic {
+  background: #f870a0;
+}
+.type.Bug {
+  background: #a8b820;
+}
+.type.Rock {
+  background: #b8a058;
+}
+.type.Ghost {
+  background: #6060b0;
+}
+.type.Dragon {
+  background: #7860e0;
+}
+.type.Dark {
+  background: #705848;
+}
+.type.Steel {
+  background: #a8a8c0;
+}
+.type.Fairy {
+  background: #f8b0d0;
+}

@@ -10,6 +10,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="/static/scripts/stupidtable.min.js"></script>
     <script src="/static/scripts/poke-inventor.js"></script>
+    <link href="/static/styles/types.css" rel="stylesheet">
     <style>
       body {
         background-color: #fcfcfc;
@@ -21,7 +22,6 @@
       .resp {
         width: 50% !important;
       }
-
       @media (max-width: 767px) {
         .resp {
           width: 100% !important;
@@ -34,99 +34,28 @@
       }
       th {
         text-align: center;
+        cursor: pointer;
       }
       td {
         text-align: center;
       }
-      .type.Normal {
-        background: #a8a090;
-        color: #fff;
-        padding: 0;
+      .nickname_input {
+        margin: 0 auto 0 0 !important;
+        width: 55% !important;
+        text-align: left !important;
       }
-      .type.Fire {
-        background: #f05030;
-        color: #fff;
-        padding: 0;
+      .nickname_save {
+        cursor: pointer;
       }
-      .type.Water {
-        background: #3898f8;
-        color: #fff;
-        padding: 0;
+      .nickname {
+        cursor: pointer;
       }
-      .type.Electric {
-        background: #f8e930;
-        color: #fff;
-        padding: 0;
+      .dps {
+        color: rgba(255, 255, 255, 0.50);
       }
-      .type.Grass {
-        background: limegreen;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Ice {
-        background: #58c8e0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Fighting {
-        background: #a05038;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Poison {
-        background: #b058a0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Ground {
-        background: #d0b058;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Flying {
-        background: #98a8f0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Psychic {
-        background: #f870a0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Bug {
-        background: #a8b820;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Rock {
-        background: #b8a058;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Ghost {
-        background: #6060b0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Dragon {
-        background: #7860e0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Dark {
-        background: #705848;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Steel {
-        background: #a8a8c0;
-        color: #fff;
-        padding: 0;
-      }
-      .type.Fairy {
-        background: #f8b0d0;
-        color: #fff;
-        padding: 0;
+      .move {
+        text-align: left !important;
+        padding-left: 15px;
       }
     </style>
   </head>
@@ -177,15 +106,16 @@
           <tr>
             <th class="num" data-field="number" data-sort="int">#</th>
             <th data-field="name" data-sort="string">Name</th>
-            <th data-field="move_1" data-sort="int">Move 1</th>
-            <th data-field="move_2" data-sort="int">Move 2</th>
+            <th class="move" data-field="move_1" data-sort="int">Move 1 <span class="dps small" style="color: rgba(0, 0, 0, 0.50);">[DPS]</span></th>
+            <th class="move" data-field="move_2" data-sort="int">Move 2 <span class="dps small" style="color: rgba(0, 0, 0, 0.50);">[DPS]</span></th>
             <th class="num" data-field="cp" data-sort="int">CP</th>
             <th class="num" data-field="individual_attack" data-sort="int">IVA</th>
             <th class="num" data-field="individual_defense" data-sort="int">IVD</th>
             <th class="num" data-field="individual_stamina" data-sort="int">IVS</th>
             <th class="num" data-field="power_quotient" data-sort="int">IV%</th>
             <th class="num" data-field="stamina" data-sort="int">HP</th>
-            <th data-field="nickname">nickname</th>
+            <th data-field="nickname" data-sort="string">nickname</th>
+            <th data-field="favorite" data-sort="int"><i class="material-icons">star</i></th>
           </tr>
         </thead>
         <tbody>
