@@ -16,12 +16,14 @@ listing your all pokemon's all.
   - nickname
 - Table Sorting (Beta)
 - Edit Pokemon's name
+- Favoritable Pokemon
 
 ## TODO
 
+- [x] Edit Pokemon's name
+- [x] Favoritable Pokemon
 - [ ] Advance Sorting
 - ~~[ ] More easily viewable table~~
-- [ ] Favoritable Pokemon 80%
 
 ## Credits
 
