@@ -40,7 +40,7 @@ $(function () {
       $nicktd = $(`<td><span data-id="${poke._id}">${poke.nickname}</span></td>`);
       $nicktd.append(`<i class="material-icons right nickname">edit</i>`);
       $newtr.append($nicktd);
-      // $newtr.append(`<td><input type="checkbox" class="filled-in fav" id="fav${i}" ${(poke.favorite === 1 ? "checked=\"checked\"" : "")}/><label for="fav${i}"></label></td>`);
+      $newtr.append(`<td><input type="checkbox" class="filled-in fav" id="fav${i}" ${(poke.favorite === 1 ? "checked=\"checked\"" : "")}/><label for="fav${i}"></label></td>`);
       $table.append($newtr);
       i++;
     }
@@ -93,7 +93,6 @@ $(function () {
     // console.dir($(this));
     var $parent = $(this).parent();
     var $span = $($parent.find('span')[0]);
-    console.dir($span);
     var nickname = $span.text();
     $span.hide();
     $(this).hide();
@@ -118,8 +117,6 @@ $(function () {
     $(this).hide();
     $span.show();
     $nickedit.show();
-    console.log("yeah");
-    console.log(id, nickname);
     $.ajax({
       type: "POST",
       url: "/rename",
