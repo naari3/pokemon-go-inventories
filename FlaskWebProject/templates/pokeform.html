@@ -41,7 +41,7 @@
       }
       .nickname_input {
         margin: 0 auto 0 0 !important;
-        width: 80% !important;
+        width: 55% !important;
         text-align: left !important;
       }
       .nickname_save {
@@ -52,6 +52,10 @@
       }
       .dps {
         color: rgba(255, 255, 255, 0.50);
+      }
+      .move {
+        text-align: left !important;
+        padding-left: 15px;
       }
     </style>
   </head>
@@ -102,15 +106,16 @@
           <tr>
             <th class="num" data-field="number" data-sort="int">#</th>
             <th data-field="name" data-sort="string">Name</th>
-            <th data-field="move_1" data-sort="int">Move 1</th>
-            <th data-field="move_2" data-sort="int">Move 2</th>
+            <th class="move" data-field="move_1" data-sort="int">Move 1 <span class="dps small" style="color: rgba(0, 0, 0, 0.50);">[DPS]</span></th>
+            <th class="move" data-field="move_2" data-sort="int">Move 2 <span class="dps small" style="color: rgba(0, 0, 0, 0.50);">[DPS]</span></th>
             <th class="num" data-field="cp" data-sort="int">CP</th>
             <th class="num" data-field="individual_attack" data-sort="int">IVA</th>
             <th class="num" data-field="individual_defense" data-sort="int">IVD</th>
             <th class="num" data-field="individual_stamina" data-sort="int">IVS</th>
             <th class="num" data-field="power_quotient" data-sort="int">IV%</th>
             <th class="num" data-field="stamina" data-sort="int">HP</th>
-            <th data-field="nickname">nickname</th>
+            <th data-field="nickname" data-sort="string">nickname</th>
+            <!-- <th data-field="favorite" data-sort="int"><i class="material-icons">star</i></th> -->
           </tr>
         </thead>
         <tbody>

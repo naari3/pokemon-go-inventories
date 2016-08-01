@@ -133,9 +133,15 @@ class PgoInventories(object):
         with open(os.path.join(approot, 'data/pokemon_ja.json')) as data_file:
             pokemon = json.load(data_file)
 
+        with open(os.path.join(approot, 'data/DPS.json')) as data_file:
+            dps = json.load(data_file)
+
         def format(i):
+            # print(i)
             i = i['inventory_item_data']['pokemon_data']
-            i = {k: v for k, v in i.items() if k in ['nickname','move_1', 'move_2', 'pokemon_id', 'individual_defense', 'stamina', 'cp', 'individual_stamina', 'individual_attack']}
+            i = {k: v for k, v in i.items() if k in ['id', 'nickname','move_1', 'move_2', 'pokemon_id', 'individual_defense', 'stamina', 'cp', 'individual_stamina', 'individual_attack', 'favorite']}
+            i["_id"] = str(i["id"])
+            i["favorite"] = 1 if "favorite" in i else 0
             i['individual_defense'] =  i.get('individual_defense', 0)
             i['individual_attack'] =  i.get('individual_attack', 0)
             i['individual_stamina'] =  i.get('individual_stamina', 0)
@@ -143,6 +149,8 @@ class PgoInventories(object):
             i['name'] = list(filter(lambda j: int(j['Number']) == i['pokemon_id'], pokemon))[0]['Name']
             move_1 = list(filter(lambda j: j['id'] == i['move_1'], moves))[0]
             move_2 = list(filter(lambda j: j['id'] == i['move_2'], moves))[0]
+            i['move_1_DPS'] = list(filter(lambda j: j['id'] == i['move_1'], dps))[0]["DPS"]
+            i['move_2_DPS'] = list(filter(lambda j: j['id'] == i['move_2'], dps))[0]["DPS"]
             i['move_1'] = move_1['name']
             i['move_2'] = move_2['name']
             i['move_1_type'] = move_1['type']

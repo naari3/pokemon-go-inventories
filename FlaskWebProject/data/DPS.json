@@ -1,0 +1,622 @@
+[
+  {
+    "name": "Stone Edge",
+    "id": 32,
+    "DPS": 32.26
+  },
+  {
+    "name": "Cross Chop",
+    "id": 28,
+    "DPS": 30.94
+  },
+  {
+    "name": "Blizzard",
+    "id": 40,
+    "DPS": 26.28
+  },
+  {
+    "name": "Body Slam",
+    "id": 131,
+    "DPS": 26.28
+  },
+  {
+    "name": "Hurricane",
+    "id": 122,
+    "DPS": 25.63
+  },
+  {
+    "name": "Megahorn",
+    "id": 22,
+    "DPS": 25.63
+  },
+  {
+    "name": "Solar Beam",
+    "id": 116,
+    "DPS": 25.1
+  },
+  {
+    "name": "Fire Blast",
+    "id": 103,
+    "DPS": 25.0
+  },
+  {
+    "name": "Power Whip",
+    "id": 118,
+    "DPS": 25.0
+  },
+  {
+    "name": "Dragon Claw",
+    "id": 83,
+    "DPS": 24.61
+  },
+  {
+    "name": "Hyper Beam",
+    "id": 14,
+    "DPS": 24.6
+  },
+  {
+    "name": "Earthquake",
+    "id": 31,
+    "DPS": 24.4
+  },
+  {
+    "name": "Hydro Pump",
+    "id": 107,
+    "DPS": 24.28
+  },
+  {
+    "name": "Thunder",
+    "id": 78,
+    "DPS": 23.84
+  },
+  {
+    "name": "Gunk Shot",
+    "id": 92,
+    "DPS": 22.21
+  },
+  {
+    "name": "Heat Wave",
+    "id": 42,
+    "DPS": 21.58
+  },
+  {
+    "name": "Moonblast",
+    "id": 87,
+    "DPS": 21.25
+  },
+  {
+    "name": "Sludge Wave",
+    "id": 91,
+    "DPS": 21.1
+  },
+  {
+    "name": "Brick Break",
+    "id": 123,
+    "DPS": 21.09
+  },
+  {
+    "name": "Thunderbolt",
+    "id": 79,
+    "DPS": 20.88
+  },
+  {
+    "name": "Petal Blizzard",
+    "id": 47,
+    "DPS": 20.82
+  },
+  {
+    "name": "Psychic",
+    "id": 108,
+    "DPS": 20.13
+  },
+  {
+    "name": "Sludge Bomb",
+    "id": 90,
+    "DPS": 19.71
+  },
+  {
+    "name": "Aqua Tail",
+    "id": 58,
+    "DPS": 19.63
+  },
+  {
+    "name": "Flamethrower",
+    "id": 24,
+    "DPS": 19.44
+  },
+  {
+    "name": "Play Rough",
+    "id": 88,
+    "DPS": 19.44
+  },
+  {
+    "name": "Cross Poison",
+    "id": 89,
+    "DPS": 18.75
+  },
+  {
+    "name": "Dragon Pulse",
+    "id": 82,
+    "DPS": 18.51
+  },
+  {
+    "name": "Ice Beam",
+    "id": 39,
+    "DPS": 18.25
+  },
+  {
+    "name": "Bug Buzz",
+    "id": 49,
+    "DPS": 18.09
+  },
+  {
+    "name": "Leaf Blade",
+    "id": 117,
+    "DPS": 18.08
+  },
+  {
+    "name": "Seed Bomb",
+    "id": 59,
+    "DPS": 17.08
+  },
+  {
+    "name": "Thunder Punch",
+    "id": 77,
+    "DPS": 17.08
+  },
+  {
+    "name": "Hyper Fang",
+    "id": 129,
+    "DPS": 17.08
+  },
+  {
+    "name": "X Scissor",
+    "id": 100,
+    "DPS": 17.08
+  },
+  {
+    "name": "Drill Run",
+    "id": 46,
+    "DPS": 16.54
+  },
+  {
+    "name": "Flash Cannon",
+    "id": 36,
+    "DPS": 15.77
+  },
+  {
+    "name": "Iron Head",
+    "id": 74,
+    "DPS": 15.38
+  },
+  {
+    "name": "Drill Peck",
+    "id": 38,
+    "DPS": 15.19
+  },
+  {
+    "name": "Psyshock",
+    "id": 60,
+    "DPS": 15.19
+  },
+  {
+    "name": "Shadow Ball",
+    "id": 70,
+    "DPS": 14.98
+  },
+  {
+    "name": "Fire Punch",
+    "id": 115,
+    "DPS": 14.64
+  },
+  {
+    "name": "Stomp",
+    "id": 127,
+    "DPS": 14.64
+  },
+  {
+    "name": "Submission",
+    "id": 54,
+    "DPS": 14.64
+  },
+  {
+    "name": "Discharge",
+    "id": 35,
+    "DPS": 14.35
+  },
+  {
+    "name": "Power Gem",
+    "id": 65,
+    "DPS": 14.14
+  },
+  {
+    "name": "Low Sweep",
+    "id": 56,
+    "DPS": 13.67
+  },
+  {
+    "name": "Dazzling Gleam",
+    "id": 86,
+    "DPS": 13.42
+  },
+  {
+    "name": "Dark Pulse",
+    "id": 16,
+    "DPS": 13.18
+  },
+  {
+    "name": "Ice Punch",
+    "id": 33,
+    "DPS": 13.18
+  },
+  {
+    "name": "Bone Club",
+    "id": 94,
+    "DPS": 12.81
+  },
+  {
+    "name": "Rock Slide",
+    "id": 64,
+    "DPS": 12.81
+  },
+  {
+    "name": "Night Slash",
+    "id": 51,
+    "DPS": 12.5
+  },
+  {
+    "name": "Dig",
+    "id": 26,
+    "DPS": 12.37
+  },
+  {
+    "name": "Flame Burst",
+    "id": 102,
+    "DPS": 12.2
+  },
+  {
+    "name": "Mud Bomb",
+    "id": 96,
+    "DPS": 11.83
+  },
+  {
+    "name": "Signal Beam",
+    "id": 99,
+    "DPS": 11.57
+  },
+  {
+    "name": "Aqua Jet",
+    "id": 57,
+    "DPS": 10.9
+  },
+  {
+    "name": "Water Pulse",
+    "id": 105,
+    "DPS": 10.87
+  },
+  {
+    "name": "Psybeam",
+    "id": 30,
+    "DPS": 10.79
+  },
+  {
+    "name": "Poison Fang",
+    "id": 50,
+    "DPS": 10.68
+  },
+  {
+    "name": "Aerial Ace",
+    "id": 45,
+    "DPS": 10.6
+  },
+  {
+    "name": "Bulldoze",
+    "id": 95,
+    "DPS": 10.55
+  },
+  {
+    "name": "Ancient Power",
+    "id": 62,
+    "DPS": 9.97
+  },
+  {
+    "name": "Ominous Wind",
+    "id": 69,
+    "DPS": 9.92
+  },
+  {
+    "name": "Sludge",
+    "id": 18,
+    "DPS": 9.86
+  },
+  {
+    "name": "Twister",
+    "id": 80,
+    "DPS": 9.49
+  },
+  {
+    "name": "Horn Attack",
+    "id": 126,
+    "DPS": 9.32
+  },
+  {
+    "name": "Draining Kiss",
+    "id": 85,
+    "DPS": 9.15
+  },
+  {
+    "name": "Magnet Bomb",
+    "id": 72,
+    "DPS": 9.15
+  },
+  {
+    "name": "Scald",
+    "id": 106,
+    "DPS": 8.97
+  },
+  {
+    "name": "Flame Wheel",
+    "id": 21,
+    "DPS": 8.91
+  },
+  {
+    "name": "Bubble Beam",
+    "id": 53,
+    "DPS": 8.84
+  },
+  {
+    "name": "Struggle",
+    "id": 133,
+    "DPS": 8.82
+  },
+  {
+    "name": "Brine",
+    "id": 104,
+    "DPS": 8.54
+  },
+  {
+    "name": "Swift",
+    "id": 125,
+    "DPS": 8.54
+  },
+  {
+    "name": "Air Cutter",
+    "id": 121,
+    "DPS": 8.52
+  },
+  {
+    "name": "Rock Tomb",
+    "id": 63,
+    "DPS": 8.27
+  },
+  {
+    "name": "Flame Charge",
+    "id": 101,
+    "DPS": 8.27
+  },
+  {
+    "name": "Wrap",
+    "id": 13,
+    "DPS": 7.69
+  },
+  {
+    "name": "Vice Grip",
+    "id": 20,
+    "DPS": 7.32
+  },
+  {
+    "name": "Icy Wind",
+    "id": 111,
+    "DPS": 6.74
+  },
+  {
+    "name": "Disarming Voice",
+    "id": 84,
+    "DPS": 5.26
+  },
+  {
+    "name": "Pound",
+    "id": 222,
+    "DPS": 12.96
+  },
+  {
+    "name": "Metal Claw",
+    "id": 228,
+    "DPS": 12.7
+  },
+  {
+    "name": "Psycho Cut",
+    "id": 226,
+    "DPS": 12.28
+  },
+  {
+    "name": "Bite",
+    "id": 202,
+    "DPS": 12.0
+  },
+  {
+    "name": "Dragon Breath",
+    "id": 204,
+    "DPS": 12.0
+  },
+  {
+    "name": "Scratch",
+    "id": 220,
+    "DPS": 12.0
+  },
+  {
+    "name": "Water Gun",
+    "id": 230,
+    "DPS": 12.0
+  },
+  {
+    "name": "Wing Attack",
+    "id": 210,
+    "DPS": 12.0
+  },
+  {
+    "name": "Fire Fang",
+    "id": 240,
+    "DPS": 11.9
+  },
+  {
+    "name": "Shadow Claw",
+    "id": 213,
+    "DPS": 11.58
+  },
+  {
+    "name": "Feint Attack",
+    "id": 238,
+    "DPS": 11.54
+  },
+  {
+    "name": "Poison Jab",
+    "id": 224,
+    "DPS": 11.43
+  },
+  {
+    "name": "Zen Headbutt",
+    "id": 234,
+    "DPS": 11.43
+  },
+  {
+    "name": "Steel Wing",
+    "id": 239,
+    "DPS": 11.28
+  },
+  {
+    "name": "Bug Bite",
+    "id": 201,
+    "DPS": 11.11
+  },
+  {
+    "name": "Frost Breath",
+    "id": 218,
+    "DPS": 11.11
+  },
+  {
+    "name": "Mud Slap",
+    "id": 233,
+    "DPS": 11.11
+  },
+  {
+    "name": "Mud Shot",
+    "id": 216,
+    "DPS": 10.91
+  },
+  {
+    "name": "Tackle",
+    "id": 221,
+    "DPS": 10.91
+  },
+  {
+    "name": "Bubble",
+    "id": 237,
+    "DPS": 10.87
+  },
+  {
+    "name": "Vine Whip",
+    "id": 214,
+    "DPS": 10.77
+  },
+  {
+    "name": "Ice Shard",
+    "id": 217,
+    "DPS": 10.71
+  },
+  {
+    "name": "Rock Smash",
+    "id": 241,
+    "DPS": 10.64
+  },
+  {
+    "name": "Cut",
+    "id": 223,
+    "DPS": 10.62
+  },
+  {
+    "name": "Poison Sting",
+    "id": 236,
+    "DPS": 10.34
+  },
+  {
+    "name": "Razor Leaf",
+    "id": 215,
+    "DPS": 10.34
+  },
+  {
+    "name": "Lick",
+    "id": 212,
+    "DPS": 10.0
+  },
+  {
+    "name": "Spark",
+    "id": 206,
+    "DPS": 10.0
+  },
+  {
+    "name": "Sucker Punch",
+    "id": 203,
+    "DPS": 10.0
+  },
+  {
+    "name": "Confusion",
+    "id": 235,
+    "DPS": 9.93
+  },
+  {
+    "name": "Acid",
+    "id": 225,
+    "DPS": 9.52
+  },
+  {
+    "name": "Ember",
+    "id": 209,
+    "DPS": 9.52
+  },
+  {
+    "name": "Rock Throw",
+    "id": 227,
+    "DPS": 8.82
+  },
+  {
+    "name": "Peck",
+    "id": 211,
+    "DPS": 8.7
+  },
+  {
+    "name": "Bullet Punch",
+    "id": 229,
+    "DPS": 8.33
+  },
+  {
+    "name": "Low Kick",
+    "id": 207,
+    "DPS": 8.33
+  },
+  {
+    "name": "Thunder Shock",
+    "id": 205,
+    "DPS": 8.33
+  },
+  {
+    "name": "Quick Attack",
+    "id": 219,
+    "DPS": 7.52
+  },
+  {
+    "name": "Fury Cutter",
+    "id": 200,
+    "DPS": 7.5
+  },
+  {
+    "name": "Karate Chop",
+    "id": 208,
+    "DPS": 7.5
+  },
+  {
+    "name": "Splash",
+    "id": 231,
+    "DPS": 0.0
+  }
+]
