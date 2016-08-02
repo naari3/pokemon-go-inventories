@@ -17,6 +17,7 @@ listing your all pokemon's all.
 - Table Sorting (Beta)
 - Edit Pokemon's name
 - Favoritable Pokemon
+- Release Pokemon
 
 ## TODO
 
