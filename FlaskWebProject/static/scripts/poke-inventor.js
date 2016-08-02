@@ -3,9 +3,11 @@ $(function () {
   var $progress = $("#progress");
   var $submit = $("#submit");
   var $form = $("#form");
+  var $reloadBtn = $("#reloadBtn");
 
   $table.hide();
   $progress.hide();
+  $reloadBtn.hide();
 
   $table.stupidtable();
 
@@ -46,6 +48,41 @@ $(function () {
     }
   }
 
+  function load_pokemon() {
+    $.ajax({
+      type: "POST",
+      url: "/inventory"
+    }).done(function (response) {
+      if (response.ResultSet) {
+        var pokemons = response.ResultSet;
+        addPokemons(pokemons);
+        $progress.fadeOut(250, function () {
+          $table.fadeIn(250);
+          $reloadBtn.show();
+          $reloadBtn.prop('disabled', false);
+        });
+      } else {
+        login_error_toast();
+      }
+    }).fail(function (data, textStatus, errorThrown) {
+      warning_status_toast(textStatus);
+    });
+  }
+
+  function login_error_toast() {
+    Materialize.toast($('<span><i class="material-icons right">warning</i>login error</span>'), 2000,'',
+    function(){
+      location.reload()
+    });
+  }
+
+  function warning_status_toast(textStatus) {
+    Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
+    function () {
+      location.reload();
+    });
+  }
+
   $submit.click(function () {
     var username = $("#username").val();
     var password = $("#password").val();
@@ -54,7 +91,7 @@ $(function () {
       $(this).prop('disabled', true);
       $.ajax({
         type: "POST",
-        url: "/rcv",
+        url: "/login",
         data: {
           username: username,
           password: password,
@@ -62,27 +99,13 @@ $(function () {
         }
       }).done(function (response) {
         console.log(response);
-        if (response.ResultSet) {
-          var pokemons = response.ResultSet;
-          addPokemons(pokemons);
-          $progress.fadeOut(250, function () {
-            $form.hide();
-            $table.fadeIn(250);
-          });
-        } else {
-          Materialize.toast($('<span><i class="material-icons right">warning</i>login error</span>'), 2000,'',
-          function(){
-            location.reload()
-          });
+        if (response == "success") {
+          $form.hide();
+          load_pokemon();
         }
-      }).fail(function(data, textStatus, errorThrown){
-        // alert(textStatus);
-        Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-        function(){
-          location.reload()
-        });
+      }).fail(function (data, textStatus, errorThrown) {
+        warning_status_toast(textStatus);
       });
-      // console.log(errorThrown.message);
       $progress.fadeIn(250);
     } else {
       Materialize.toast($('<span><i class="material-icons right">warning</i>全て入力して下さい</span>'), 4000);
@@ -127,11 +150,7 @@ $(function () {
     }).done(function (response) {
       console.log(response);
     }).fail(function(data, textStatus, errorThrown){
-      // alert(textStatus);
-      Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-      function () {
-        location.reload();
-      });
+      warning_status_toast(textStatus);
     });
   });
 
@@ -147,11 +166,13 @@ $(function () {
     }).done(function (response) {
       console.log(response);
     }).fail(function(data, textStatus, errorThrown){
-      // alert(textStatus);
-      Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-      function () {
-        location.reload();
-      });
+      warning_status_toast(textStatus);
     });
   });
+
+  $reloadBtn.click(function () {
+    $(this).prop('disabled', true);
+    $('tbody tr').remove();
+    load_pokemon();
+  })
 });

@@ -11,55 +11,15 @@
     <script src="/static/scripts/stupidtable.min.js"></script>
     <script src="/static/scripts/poke-inventor.js"></script>
     <link href="/static/styles/types.css" rel="stylesheet">
-    <style>
-      body {
-        background-color: #fcfcfc;
-      }
-      ul {
-        margin: 0px;
-      }
-
-      .resp {
-        width: 50% !important;
-      }
-      @media (max-width: 767px) {
-        .resp {
-          width: 100% !important;
-        }
-      }
-      .table {
-        width: 95%;
-        margin: 0 auto;
-        font-size: 97.5%;
-      }
-      th {
-        text-align: center;
-        cursor: pointer;
-      }
-      td {
-        text-align: center;
-      }
-      .nickname_input {
-        margin: 0 auto 0 0 !important;
-        width: 55% !important;
-        text-align: left !important;
-      }
-      .nickname_save {
-        cursor: pointer;
-      }
-      .nickname {
-        cursor: pointer;
-      }
-      .dps {
-        color: rgba(255, 255, 255, 0.50);
-      }
-      .move {
-        text-align: left !important;
-        padding-left: 15px;
-      }
-    </style>
+    <link href="/static/styles/pokeform.css" rel="stylesheet">
   </head>
   <body>
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="#!">one</a></li>
+      <li><a href="#!">two</a></li>
+      <li class="divider"></li>
+      <li><a href="#!">three</a></li>
+    </ul>
     <div class="container">
       <div id="form">
         <div class="row">
@@ -122,5 +82,6 @@
         </tbody>
       </table>
     </div>
+    <div id="reload"><button id="reloadBtn" class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons">replay</i></button></div>
   </body>
 </html>

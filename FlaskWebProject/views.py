@@ -7,11 +7,13 @@ from flask import render_template, jsonify, request, session, redirect, url_for
 import json
 from FlaskWebProject import app
 from PgoInventories import PgoInventories
+import hashlib
+
 pi = PgoInventories()
 app.config['JSON_AS_ASCII'] = False
 app.config['SECRET_KEY'] = 'Pokemon Go is God'
 
-apis = []
+apis = {}
 
 @app.route('/')
 def home():
@@ -19,6 +21,21 @@ def home():
     return render_template(
         'pokeform.html'
     )
+
+@app.route('/login', methods=['POST'])
+def login():
+    """Return pgoapi instance dict's key."""
+    username = request.form.get("username", type=str)
+    password = request.form.get("password", type=str)
+    auth_service = request.form.get("auth_service", type=str)
+    login_dict = {"username": username, "password": password, "auth_service": auth_service}
+    api = pi.pgologin(username, password, auth_service, "Tokyo sta")
+    hashed = hashlib.sha256((username + password + auth_service).encode('utf-8')).hexdigest()
+    apis[hashed] = api
+    session['apinum'] = hashed
+    print(session['apinum'])
+
+    return "success", 200
 
 @app.route('/rcv', methods=['POST'])
 def recv():
@@ -28,9 +45,17 @@ def recv():
     auth_service = request.form.get("auth_service", type=str)
     login_dict = {"username": username, "password": password, "auth_service": auth_service}
     poke_dict, api = pi.main(username, password, auth_service, "Tokyo sta")
-    apis.append(api)
-    session['apinum'] = apis.index(api)
+    hashed = hashlib.sha256((username + password + auth_service).encode('utf-8')).hexdigest()
+    apis[hashed] = api
+    session['apinum'] = hashed
     print(session['apinum'])
+
+    return jsonify(ResultSet=poke_dict, ensure_ascii=False)
+
+@app.route('/inventory', methods=['POST'])
+def inventory():
+    """Return pokemon json."""
+    poke_dict = pi.pokedict(apis[session['apinum']])
 
     return jsonify(ResultSet=poke_dict, ensure_ascii=False)
 
