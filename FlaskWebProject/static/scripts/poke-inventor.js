@@ -1,4 +1,5 @@
 $(function () {
+  var $release;
   var $table = $("table");
   var $progress = $("#progress");
   var $submit = $("#submit");
@@ -43,6 +44,10 @@ $(function () {
       $nicktd.append(`<i class="material-icons right nickname">edit</i>`);
       $newtr.append($nicktd);
       $newtr.append(`<td><input type="checkbox" class="filled-in fav" id="fav${i}" ${(poke.favorite === 1 ? "checked=\"checked\"" : "")}/><label for="fav${i}"></label></td>`);
+      // $newtr.append(`<td><a class="btn" data-alignment="right" data-beloworigin="true" data-activates="dd${i}">a</a></td>`);
+      // $newtr.append(`<td><a data-alignment="right" data-beloworigin="true" data-activates="dd${i}"><i class="material-icons">present_to_all</i></a></td>`);
+      // $newtr.append(`<ul id="dd${i}" class="dropdown-content release" data-id="${poke._id}"><li><a>博士に送る</a></li></ul>`);
+      $newtr.append(`<td><a class="release"><i class="material-icons">present_to_all</i></a></td>`);
       $table.append($newtr);
       i++;
     }
@@ -123,7 +128,7 @@ $(function () {
       $($parent.find('.nickname_input')[0]).show();
       $($parent.find('.nickname_save')[0]).show();
     } else {
-      $parent.append(`<input class="nickname_input" type="text" value=${nickname}></input>`);
+      $parent.append(`<input class="nickname_input" type="text" value=${nickname}"></input>`);
       $parent.append(`<i class="material-icons prefix nickname_save">save</i>`);
     }
   });
@@ -174,5 +179,54 @@ $(function () {
     $(this).prop('disabled', true);
     $('tbody tr').remove();
     load_pokemon();
-  })
+  });
+
+  $(document).on('click', '.release', function () {
+    var id = $(this).parent().parent().data('id').toString();
+    console.log(id);
+    $('#alert').openModal();
+    $.ajax({
+      type: "POST",
+      url: "/release",
+      data: {
+        pokeid: id
+      }
+    }).done(function (response) {
+      console.log(response);
+      release = $(this);
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
+    });
+  });
+
+  $("#release-accept").click(function () {
+    $.ajax({
+      type: "POST",
+      url: "/release_accept"
+    }).done(function (response) {
+      console.log(response);
+      console.log(response.ResultSet[1]);
+      var released_pokeid = response.ResultSet[1];
+      var $trlist = $table.find("tr");
+      for (var i = 0; i < $trlist.length; i++) {
+        var $tr = $($trlist[i]);
+        if ($tr.data('id') == released_pokeid) {
+          $tr.remove();
+        }
+      }
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
+    });
+  });
+
+  $("#release-cancel").click(function () {
+    $.ajax({
+      type: "POST",
+      url: "/release_cancel"
+    }).done(function (response) {
+      console.log(response);
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
+    });
+  });
 });

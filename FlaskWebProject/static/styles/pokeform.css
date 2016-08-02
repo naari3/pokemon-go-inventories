@@ -58,3 +58,6 @@ td {
 #reload:hover {
   opacity: 1;
 }
+.release {
+  cursor: pointer;
+}

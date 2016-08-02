@@ -14,12 +14,20 @@
     <link href="/static/styles/pokeform.css" rel="stylesheet">
   </head>
   <body>
-    <ul id='dropdown1' class='dropdown-content'>
+    <!-- <a id="btn" class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdowntest'>a</a> -->
+    <!-- <a id="btn" data-beloworigin="true" data-activates="dropdowntest">a</a> -->
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdowntest' class='dropdown-content'>
       <li><a href="#!">one</a></li>
       <li><a href="#!">two</a></li>
       <li class="divider"></li>
       <li><a href="#!">three</a></li>
     </ul>
+    <!-- <ul id="dd0" class="dropdown-content"><li><a href="#0">博士に送る</a></li></ul>
+    <ul id="dd1" class="dropdown-content"><li><a href="#1">博士に送る</a></li></ul>
+    <ul id="dd2" class="dropdown-content"><li><a href="#2">博士に送る</a></li></ul>
+    <ul id="dd3" class="dropdown-content"><li><a href="#3">博士に送る</a></li></ul> -->
     <div class="container">
       <div id="form">
         <div class="row">
@@ -61,7 +69,7 @@
 
 
     <div class="table">
-      <table class="bordered" id="myTable">
+      <table class="bordered highlight" id="myTable">
         <thead>
           <tr>
             <th class="num" data-field="number" data-sort="int">#</th>
@@ -76,6 +84,7 @@
             <th class="num" data-field="stamina" data-sort="int">HP</th>
             <th data-field="nickname" data-sort="string">nickname</th>
             <th data-field="favorite" data-sort="int"><i class="material-icons">star</i></th>
+            <th data-field="drop"></th>
           </tr>
         </thead>
         <tbody>
@@ -83,5 +92,15 @@
       </table>
     </div>
     <div id="reload"><button id="reloadBtn" class="btn-floating btn-large waves-effect waves-light teal lighten-1"><i class="material-icons">replay</i></button></div>
+    <div id="alert" class="modal">
+      <div class="modal-content">
+        <h4>博士に送る</h4>
+        <p>本当に博士に送りますか？</p>
+      </div>
+      <div class="modal-footer">
+        <a id="release-accept" class=" modal-action modal-close waves-effect waves-green btn-flat">送る</a>
+        <a id="release-cancel" class=" modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+      </div>
+    </div>
   </body>
 </html>
