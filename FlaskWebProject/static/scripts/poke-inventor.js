@@ -18,6 +18,8 @@ $(function () {
     "Rock":13, "Ghost":14, "Dragon":15, "Dark":16, "Steel":17,"Fairy":18,
   }
 
+
+
   function addPokemons(pokemons) {
     var i = 0;
     for (var poke of pokemons) {
@@ -62,6 +64,7 @@ $(function () {
         var pokemons = response.ResultSet;
         addPokemons(pokemons);
         $progress.fadeOut(250, function () {
+          $form.hide();
           $table.fadeIn(250);
           $reloadBtn.show();
           $reloadBtn.prop('disabled', false);
@@ -70,6 +73,7 @@ $(function () {
         login_error_toast();
       }
     }).fail(function (data, textStatus, errorThrown) {
+
       warning_status_toast(textStatus);
     });
   }
@@ -85,6 +89,31 @@ $(function () {
     Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
     function () {
       location.reload();
+    });
+  }
+
+  if ($("#logged_in").text() == "True") {
+    console.log("loggedin");
+    $submit.prop('disabled', true);
+    $.ajax({
+      type: "POST",
+      url: "/inventory"
+    }).done(function (response) {
+      if (response.ResultSet) {
+        var pokemons = response.ResultSet;
+        addPokemons(pokemons);
+        $progress.fadeOut(250, function () {
+          $form.hide();
+          $table.fadeIn(250);
+          $reloadBtn.show();
+          $reloadBtn.prop('disabled', false);
+        });
+      } else {
+        login_error_toast();
+      }
+    }).fail(function (data, textStatus, errorThrown) {
+      console.log("aa");
+      $submit.prop('disabled', false);
     });
   }
 
@@ -105,7 +134,6 @@ $(function () {
       }).done(function (response) {
         console.log(response);
         if (response == "success") {
-          $form.hide();
           load_pokemon();
         }
       }).fail(function (data, textStatus, errorThrown) {

@@ -21,8 +21,10 @@ salt = "Salt"
 @app.route('/')
 def home():
     """Renders the home page."""
+    logged_in = bool(session.get('apinum'))
     return render_template(
-        'pokeform.html'
+        'pokeform.html',
+        logged_in = logged_in
     )
 
 @app.route('/login', methods=['POST'])
