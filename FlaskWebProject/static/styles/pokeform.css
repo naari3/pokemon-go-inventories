@@ -1,0 +1,63 @@
+body {
+  background-color: #fcfcfc;
+}
+ul {
+  margin: 0px;
+}
+
+.resp {
+  width: 50% !important;
+}
+@media (max-width: 767px) {
+  .resp {
+    width: 100% !important;
+  }
+}
+.table {
+  width: 95%;
+  margin: 0 auto;
+  font-size: 97.5%;
+}
+th {
+  text-align: center;
+  cursor: pointer;
+}
+td {
+  text-align: center;
+}
+.nickname_input {
+  margin: 0 auto 0 0 !important;
+  width: 55% !important;
+  text-align: left !important;
+}
+.nickname_save {
+  cursor: pointer;
+}
+.nickname {
+  cursor: pointer;
+}
+.dps {
+  color: rgba(255, 255, 255, 0.50);
+}
+@media (max-width: 767px) {
+  .dps {
+    display: none !important;
+  }
+}
+.move {
+  text-align: left !important;
+  padding-left: 15px;
+}
+#reload {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0.4;
+  transition: opacity 0.3s linear;
+}
+#reload:hover {
+  opacity: 1;
+}
+.release {
+  cursor: pointer;
+}

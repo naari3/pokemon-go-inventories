@@ -1,11 +1,14 @@
 $(function () {
+  var $release;
   var $table = $("table");
   var $progress = $("#progress");
   var $submit = $("#submit");
   var $form = $("#form");
+  var $reloadBtn = $("#reloadBtn");
 
   $table.hide();
   $progress.hide();
+  $reloadBtn.hide();
 
   $table.stupidtable();
 
@@ -41,9 +44,48 @@ $(function () {
       $nicktd.append(`<i class="material-icons right nickname">edit</i>`);
       $newtr.append($nicktd);
       $newtr.append(`<td><input type="checkbox" class="filled-in fav" id="fav${i}" ${(poke.favorite === 1 ? "checked=\"checked\"" : "")}/><label for="fav${i}"></label></td>`);
+      // $newtr.append(`<td><a class="btn" data-alignment="right" data-beloworigin="true" data-activates="dd${i}">a</a></td>`);
+      // $newtr.append(`<td><a data-alignment="right" data-beloworigin="true" data-activates="dd${i}"><i class="material-icons">present_to_all</i></a></td>`);
+      // $newtr.append(`<ul id="dd${i}" class="dropdown-content release" data-id="${poke._id}"><li><a>博士に送る</a></li></ul>`);
+      $newtr.append(`<td><a class="release"><i class="material-icons">present_to_all</i></a></td>`);
       $table.append($newtr);
       i++;
     }
+  }
+
+  function load_pokemon() {
+    $.ajax({
+      type: "POST",
+      url: "/inventory"
+    }).done(function (response) {
+      if (response.ResultSet) {
+        var pokemons = response.ResultSet;
+        addPokemons(pokemons);
+        $progress.fadeOut(250, function () {
+          $table.fadeIn(250);
+          $reloadBtn.show();
+          $reloadBtn.prop('disabled', false);
+        });
+      } else {
+        login_error_toast();
+      }
+    }).fail(function (data, textStatus, errorThrown) {
+      warning_status_toast(textStatus);
+    });
+  }
+
+  function login_error_toast() {
+    Materialize.toast($('<span><i class="material-icons right">warning</i>login error</span>'), 2000,'',
+    function(){
+      location.reload()
+    });
+  }
+
+  function warning_status_toast(textStatus) {
+    Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
+    function () {
+      location.reload();
+    });
   }
 
   $submit.click(function () {
@@ -54,7 +96,7 @@ $(function () {
       $(this).prop('disabled', true);
       $.ajax({
         type: "POST",
-        url: "/rcv",
+        url: "/login",
         data: {
           username: username,
           password: password,
@@ -62,27 +104,13 @@ $(function () {
         }
       }).done(function (response) {
         console.log(response);
-        if (response.ResultSet) {
-          var pokemons = response.ResultSet;
-          addPokemons(pokemons);
-          $progress.fadeOut(250, function () {
-            $form.hide();
-            $table.fadeIn(250);
-          });
-        } else {
-          Materialize.toast($('<span><i class="material-icons right">warning</i>login error</span>'), 2000,'',
-          function(){
-            location.reload()
-          });
+        if (response == "success") {
+          $form.hide();
+          load_pokemon();
         }
-      }).fail(function(data, textStatus, errorThrown){
-        // alert(textStatus);
-        Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-        function(){
-          location.reload()
-        });
+      }).fail(function (data, textStatus, errorThrown) {
+        warning_status_toast(textStatus);
       });
-      // console.log(errorThrown.message);
       $progress.fadeIn(250);
     } else {
       Materialize.toast($('<span><i class="material-icons right">warning</i>全て入力して下さい</span>'), 4000);
@@ -100,7 +128,7 @@ $(function () {
       $($parent.find('.nickname_input')[0]).show();
       $($parent.find('.nickname_save')[0]).show();
     } else {
-      $parent.append(`<input class="nickname_input" type="text" value=${nickname}></input>`);
+      $parent.append(`<input class="nickname_input" type="text" value=${nickname}"></input>`);
       $parent.append(`<i class="material-icons prefix nickname_save">save</i>`);
     }
   });
@@ -127,11 +155,7 @@ $(function () {
     }).done(function (response) {
       console.log(response);
     }).fail(function(data, textStatus, errorThrown){
-      // alert(textStatus);
-      Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-      function () {
-        location.reload();
-      });
+      warning_status_toast(textStatus);
     });
   });
 
@@ -147,11 +171,62 @@ $(function () {
     }).done(function (response) {
       console.log(response);
     }).fail(function(data, textStatus, errorThrown){
-      // alert(textStatus);
-      Materialize.toast($(`<span><i class="material-icons right">warning</i>${textStatus}</span>`), 2000,'',
-      function () {
-        location.reload();
-      });
+      warning_status_toast(textStatus);
+    });
+  });
+
+  $reloadBtn.click(function () {
+    $(this).prop('disabled', true);
+    $('tbody tr').remove();
+    load_pokemon();
+  });
+
+  $(document).on('click', '.release', function () {
+    var id = $(this).parent().parent().data('id').toString();
+    console.log(id);
+    $('#alert').openModal();
+    $.ajax({
+      type: "POST",
+      url: "/release",
+      data: {
+        pokeid: id
+      }
+    }).done(function (response) {
+      console.log(response);
+      release = $(this);
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
+    });
+  });
+
+  $("#release-accept").click(function () {
+    $.ajax({
+      type: "POST",
+      url: "/release_accept"
+    }).done(function (response) {
+      console.log(response);
+      console.log(response.ResultSet[1]);
+      var released_pokeid = response.ResultSet[1];
+      var $trlist = $table.find("tr");
+      for (var i = 0; i < $trlist.length; i++) {
+        var $tr = $($trlist[i]);
+        if ($tr.data('id') == released_pokeid) {
+          $tr.remove();
+        }
+      }
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
+    });
+  });
+
+  $("#release-cancel").click(function () {
+    $.ajax({
+      type: "POST",
+      url: "/release_cancel"
+    }).done(function (response) {
+      console.log(response);
+    }).fail(function(data, textStatus, errorThrown){
+      warning_status_toast(textStatus);
     });
   });
 });
