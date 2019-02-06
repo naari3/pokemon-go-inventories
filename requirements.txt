@@ -5,7 +5,7 @@ geopy==1.11.0
 gpsoauth==0.3.0
 gunicorn==19.6.0
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.10
 MarkupSafe==0.23
 git+https://github.com/tejado/pgoapi.git@8cafd56fb2fde52f1617fe13d7e75e01bc1f529b#egg=pgoapi
 protobuf==3.0.0
