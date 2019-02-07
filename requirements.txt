@@ -10,7 +10,7 @@ MarkupSafe==0.23
 git+https://github.com/tejado/pgoapi.git@8cafd56fb2fde52f1617fe13d7e75e01bc1f529b#egg=pgoapi
 protobuf==3.0.0
 pycryptodomex==3.4.2
-requests==2.10.0
+requests==2.21.0
 s2sphere==0.2.4
 six==1.10.0
 tabulate==0.7.5
