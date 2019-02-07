@@ -2,7 +2,7 @@ click==6.6
 Flask==0.12.4
 future==0.15.2
 geopy==1.11.0
-gpsoauth==0.3.0
+gpsoauth==0.4.1
 gunicorn==19.6.0
 itsdangerous==0.24
 Jinja2==2.10
