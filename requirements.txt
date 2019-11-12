@@ -1,6 +1,6 @@
 click==6.6
 Flask==0.12.4
-future==0.15.2
+future==0.18.2
 geopy==1.11.0
 gpsoauth==0.3.0
 gunicorn==19.6.0
